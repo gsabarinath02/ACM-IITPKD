@@ -1,0 +1,58 @@
+--------------------------------------------------------------------------
+WARNING: No preset parameters were found for the device that Open MPI
+detected:
+
+  Local host:            cn01
+  Device name:           mlx5_0
+  Device vendor ID:      0x02c9
+  Device vendor part ID: 4125
+
+Default device parameters will be used, which may result in lower
+performance.  You can edit any of the files specified by the
+btl_openib_device_param_files MCA parameter to set values for your
+device.
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_no_device_params_found to 0.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           cn01
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       rdmacm, udcm
+--------------------------------------------------------------------------
+[cn01:33916] *** Process received signal ***
+[cn01:33916] Signal: Segmentation fault (11)
+[cn01:33916] Signal code: Address not mapped (1)
+[cn01:33916] Failing at address: 0x180
+[cn01:33916] [ 0] /lib64/libpthread.so.0(+0xf630)[0x7f67732f7630]
+[cn01:33916] [ 1] /lib64/libc.so.6(+0x1556de)[0x7f677306f6de]
+[cn01:33916] [ 2] /opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/lib/libopen-pal.so.40(opal_convertor_unpack+0x106)[0x7f67729a81d6]
+[cn01:33916] [ 3] /opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/lib/openmpi/mca_pml_ob1.so(mca_pml_ob1_recv_frag_callback_match+0x4ab)[0x7f6760df044b]
+[cn01:33916] [ 4] /opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/lib/openmpi/mca_btl_vader.so(mca_btl_vader_poll_handle_frag+0x79)[0x7f6761821f79]
+[cn01:33916] [ 5] /opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/lib/openmpi/mca_btl_vader.so(+0x426f)[0x7f676182226f]
+[cn01:33916] [ 6] /opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/lib/libopen-pal.so.40(opal_progress+0x2c)[0x7f6772997d8c]
+[cn01:33916] [ 7] /opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/lib/libmpi.so.40(ompi_request_default_wait+0x105)[0x7f677354e545]
+[cn01:33916] [ 8] /opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/lib/libmpi.so.40(ompi_coll_base_bcast_intra_generic+0x5dd)[0x7f677359fe3d]
+[cn01:33916] [ 9] /opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/lib/libmpi.so.40(ompi_coll_base_bcast_intra_binomial+0xb1)[0x7f67735a01f1]
+[cn01:33916] [10] /opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_bcast_intra_dec_fixed+0xeb)[0x7f675fb8483b]
+[cn01:33916] [11] /opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/lib/libmpi.so.40(MPI_Bcast+0x14e)[0x7f67735673ae]
+[cn01:33916] [12] ./output[0x400b8a]
+[cn01:33916] [13] ./output[0x400da0]
+[cn01:33916] [14] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7f6772f3c555]
+[cn01:33916] [15] ./output[0x400989]
+[cn01:33916] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 0 on node cn01 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+[cn01:33904] 1 more process has sent help message help-mpi-btl-openib.txt / no device params found
+[cn01:33904] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[cn01:33904] 1 more process has sent help message help-mpi-btl-openib-cpc-base.txt / no cpcs for port
